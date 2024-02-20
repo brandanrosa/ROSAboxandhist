@@ -7,7 +7,7 @@
 #' @param ... passes extra arguments to the function
 #'
 #' @importFrom ggplot2 ggplot geom_boxplot geom_histogram layer_data aes
-#' @importFrom dplyr %>% mutate
+#' @importFrom dplyr %>% mutate if_else
 #'
 #' @return a boxplot and histogram, plus a list of data from the `geom_boxplot` function output
 #' @export
@@ -33,5 +33,6 @@ rosabox <- function(df, var, ...){
     geom_histogram(data = df_new, aes(fill = inout))
 
   print(ph)
+
   list(out = out, df_new = df_new)
 }
