@@ -6,7 +6,7 @@
 #' @param var a column vector from the data frame (numerical)
 #' @param ... passes extra arguments to the function
 #'
-#' @importFrom ggplot2 ggplot geom_boxplot geom_histogram layer_data
+#' @importFrom ggplot2 ggplot geom_boxplot geom_histogram layer_data aes
 #' @importFrom dplyr %>%
 #'
 #' @return a boxplot and histogram, plus a list of data from the `geom_boxplot` function output
