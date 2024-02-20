@@ -9,9 +9,9 @@ rosabox(df, x, ...)
 \arguments{
 \item{df}{a data frame}
 
-\item{...}{passes extra arguments to the function}
+\item{x}{a column vector from the data frame (numerical)}
 
-\item{var}{a column vector from the data frame (numerical)}
+\item{...}{passes extra arguments to the function}
 }
 \value{
 a boxplot and histogram, plus a list of data from the `geom_boxplot` function output

@@ -1,11 +1,10 @@
 Package: ROSAboxandhist
 Type: Package
-Title: What the Package Does (Title Case)
+Title: ROSABOX
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: Brandan Rosa
+Maintainer: Brandan Rosa <brandanrosa22@gmail.com>
+Description: Box plot and histogram plots with outliers noted.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -14,3 +13,4 @@ Depends:
     R (>= 2.10)
 URL: https://github.com/brandanrosa/ROSAboxandhist
 BugReports: https://github.com/brandanrosa/ROSAboxandhist/issues
+Imports: dplyr, ggplot2

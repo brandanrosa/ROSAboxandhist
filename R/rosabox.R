@@ -3,7 +3,7 @@
 #' Produces a boxplot and histogram of the df using `ggplot2`
 #'
 #' @param df a data frame
-#' @param var a column vector from the data frame (numerical)
+#' @param x a column vector from the data frame (numerical)
 #' @param ... passes extra arguments to the function
 #'
 #' @importFrom ggplot2 ggplot geom_boxplot geom_histogram layer_data aes
@@ -15,6 +15,10 @@
 #' @examples
 #' \dontrun{rosabox(ddt, LENGTH)}
 rosabox <- function(df, x, ...){
+
+  .data <- NULL
+  inout <- NULL
+
 
   pbase <- ggplot(df, aes(x = .data[[x]]))
 
@@ -42,3 +46,5 @@ rosabox <- function(df, x, ...){
 
   list(out = out, outliers = outliers, df_new = df_new, iqr = iqrint)
 }
+
+
