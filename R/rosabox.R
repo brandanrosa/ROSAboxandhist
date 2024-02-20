@@ -23,7 +23,7 @@ rosabox <- function(df, x, ...){
   pbase <- ggplot(df, aes(x = .data[[x]]))
 
   pb <- pbase +
-    geom_boxplot()
+    geom_boxplot(fill = inout)
 
   print(pb)
 
@@ -46,5 +46,3 @@ rosabox <- function(df, x, ...){
 
   list(out = out, outliers = outliers, df_new = df_new, iqr = iqrint)
 }
-
-
