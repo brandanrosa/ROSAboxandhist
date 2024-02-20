@@ -25,6 +25,7 @@ rosabox <- function(df, var, ...){
 
   out <-  layer_data(pb)
   outliers <- out$outliers
+  iqrint <- c(out$lower, out$upper)
 
   df_new <- df %>%
     mutate(inout = if_else(is.element(.data[[var]], outliers[[1]]), "out", "in"))
@@ -34,5 +35,7 @@ rosabox <- function(df, var, ...){
 
   print(ph)
 
-  list(out = out, df_new = df_new)
+  list(out = out, outliers = outliers, df_new = df_new, iqr = iqrint)
 }
+
+
