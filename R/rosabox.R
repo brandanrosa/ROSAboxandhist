@@ -14,9 +14,9 @@
 #'
 #' @examples
 #' \dontrun{rosabox(ddt, LENGTH)}
-rosabox <- function(df, var, ...){
+rosabox <- function(df, x, ...){
 
-  pbase <- ggplot(df, aes(x = .data[[var]]))
+  pbase <- ggplot(df, aes(x = .data[[x]]))
 
   pb <- pbase +
     geom_boxplot()
@@ -25,10 +25,15 @@ rosabox <- function(df, var, ...){
 
   out <-  layer_data(pb)
   outliers <- out$outliers
-  iqrint <- c(out$lower, out$upper)
+  iqrint <- c(out$xlower, out$xupper)
 
   df_new <- df %>%
-    mutate(inout = if_else(is.element(.data[[var]], outliers[[1]]), "out", "in"))
+    mutate(inout = if_else(is.element(.data[[x]], outliers[[1]]), "out", "in"))
+
+  df_new <- df_new %>%
+    mutate(iqr1 = ifelse(.data[[x]] >= out$xlower & .data[[x]] <= out$xupper, "iqr", "no"))
+
+  df_new$inout[df_new$inout == "in" & df_new$iqr1 == "iqr"] <- "iqr"
 
   ph <- pbase +
     geom_histogram(data = df_new, aes(fill = inout))
@@ -37,5 +42,3 @@ rosabox <- function(df, var, ...){
 
   list(out = out, outliers = outliers, df_new = df_new, iqr = iqrint)
 }
-
-

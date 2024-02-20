@@ -4,14 +4,14 @@
 \alias{rosabox}
 \title{rosabox}
 \usage{
-rosabox(df, var, ...)
+rosabox(df, x, ...)
 }
 \arguments{
 \item{df}{a data frame}
 
-\item{var}{a column vector from the data frame (numerical)}
-
 \item{...}{passes extra arguments to the function}
+
+\item{var}{a column vector from the data frame (numerical)}
 }
 \value{
 a boxplot and histogram, plus a list of data from the `geom_boxplot` function output
